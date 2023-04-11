@@ -9,50 +9,41 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </head>
 <body>
-    <button type="button" class="btn btn-primary position-relative mt-5 ">
-        Tahmin Sayınız
-        <span id="count"  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <button type="button" class="btn btn-primary position-relative  mt-5">
+       Tahmin Sayisi
+        <span id="count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
           0
           <span class="visually-hidden">unread messages</span>
         </span>
       </button>
-
-    <div class="mb-3">
-        <h1 id="h1id" >Sayı Tahmini Oyunu</h1> 
-        <input type="email" class="form-control" id="in1" placeholder="Lütfen 1-100 arası bir sayı giriniz">
-      </div>
-      
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button onclick="TahminG()" class="btn btn-primary" type="button">Gönder</button>
-       
+    <h1>Sayi Tahmin Oyunu</h1>
+            <div class="mb-3">
+         <input type="email" class="form-control" id="in1" placeholder="Lutfen 1 ile 100 arasi bir sayi girin">
+              </div>
+        <button onclick="TahminG()"   class="btn btn-primary" type="button">Gonder</button>
+        <div id="sonuc"  class="alert alert-info" role="alert">
+         ...
+          </div>
       </div>
-    </div>
-    <div  id="sonuc" class="alert alert-info" role="alert">
-    </div>
-    <script>
-var sayi=Math.floor((Math.random()*100)+1);
+<script>
+var sayi=Math.floor(Math.random()*100);
 var sayac=0;
-console.log(sayi);
 function TahminG(){
-var t=Number(document.getElementById("in1").value);
-
+    var t=document.getElementById("in1").value;
     if(t<sayi){
-sayac++;
-        document.getElementById("sonuc").innerHTML="Tahmin Sayınızı Büyütünüz!!"
-        document.getElementById("count").innerHTML=sayac;
-
+      document.getElementById("sonuc").innerHTML="Tahmin Sayinizi Buyutun";
+      document.getElementById("count").innerHTML=sayac;
     }else if(t>sayi){
-++sayac;
-document.getElementById("sonuc").innerHTML="Tahmin Sayınızı Küçültünüz!!!";
-document.getElementById("count").innerHTML=sayac;
-
+        ++sayac;
+        document.getElementById("sonuc").innerHTML="Tahmin sayinizi kucultun";
+        document.getElementById("count").innerHTML=sayac;
     }else if(t==sayi){
         sayac++;
-        document.getElementById("sonuc").innerHTML="Tebrikler Doğru Tahmin Ettiniz!!!"
+        document.getElementById("sonuc").innerHTML="Tebrikler"
         document.getElementById("count").innerHTML=sayac;
     }
 }
-    </script>
-    
+</script>
 </body>
 </html>
